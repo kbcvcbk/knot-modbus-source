@@ -69,8 +69,9 @@ AC_DEFINE_UNQUOTED(CONFIGDIR, "${configdir}",
 AC_SUBST(CONFIGDIR, "${configdir}")
 
 AC_ARG_ENABLE(configfiles, AC_HELP_STRING([--enable-configfiles],
-			[Do not install config files]),
-					[enable_configfiles=${enableval}])
+			[enable to install config files [default=yes]]),
+					[enable_configfiles=${enableval}],
+					[enable_configfiles=yes])
 AM_CONDITIONAL(CONFIGFILES, test "${enable_configfiles}" = "yes")
 
 AC_OUTPUT(Makefile)
