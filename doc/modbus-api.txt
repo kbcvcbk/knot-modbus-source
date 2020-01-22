@@ -116,6 +116,13 @@ Properties
 		basic type syntax.
 
 
+		string Unit [readonly]
+
+		Unit (symbol) based on IEEE 260.1 (Standard Letter
+		Symbols for Units of Measure). Symbols are upper case
+		unicode hex encoded character.
+
+
 		Variant Value [readonly]
 
 		Value exposed by the Source object. 'Signature' defines
