@@ -63,10 +63,10 @@ static modbus_t *create(const char *url)
 	if (ioctl (fd, TIOCGRS485, &rs485conf) < 0) {
 		 mode = MODBUS_RTU_RS232;
                  l_info("Switching to RS-232 ...");
-         } else {
+    } else {
 		 mode = MODBUS_RTU_RS485;
                  l_info("Switching to RS-485 ...");
-	 }
+	}
 
 	close(fd);
 
