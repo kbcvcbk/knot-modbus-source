@@ -596,7 +596,7 @@ struct slave *slave_create(const char *key, uint8_t id,
 	if (!url)
 		return NULL;
 
-	/* FIXME: not possible to detect syntax error */
+	/* URL Syntax checking happens when attempting to connect, later */
 
 	if (strcmp("tcp://", url) < 0)
 		drv = &tcp;
@@ -657,7 +657,7 @@ struct slave *slave_create(const char *key, uint8_t id,
 		storage_write_key_string(slaves_storage, key,
 					 "Name", name ? : url);
 		storage_write_key_string(slaves_storage, key,
-					 "URL", url);
+					 "URL", url); in
 	}
 
 	slave->poll_to = l_timeout_create(1, enable_slave, slave, NULL);
@@ -748,7 +748,7 @@ struct l_queue *slave_start(const char *units_filename)
 	source_start();
 
 	list = l_queue_new();
-	storage_foreach_slave(slaves_storage, create_slave_from_storage, list);
+	storage_foreach_slave(slaves_storage, create_slave_from_storage, q);
 
 	return list;
 }
